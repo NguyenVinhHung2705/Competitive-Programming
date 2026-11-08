@@ -69,18 +69,20 @@ This repository documents my continuous journey across competitive programming p
 
 Problems are categorized into dedicated directories matching their **Codeforces problem difficulty rating**.
 
+<!-- AUTO-GEN:DIRECTORY_STRUCTURE:START -->
 ```text
 Competitive-Programming/
 ├── 800/                                  # Rating 800: Basic implementation & simulation
+│   ├── 800_50A.cpp
 │   ├── 800_112A.cpp
 │   ├── 800_158A.cpp
 │   ├── 800_236A.cpp
 │   └── ...
 ├── 900/                                  # Rating 900: Elementary observations & brute force
+│   ├── 900_96A.cpp
 │   ├── 900_133A.cpp
 │   ├── 900_160A.cpp
 │   ├── 900_208A.cpp
-│   ├── 900_208A.py
 │   └── ...
 ├── 1000/                                 # Rating 1000: Basic algorithms & greedy logic
 │   ├── 1000_90A.cpp
@@ -88,10 +90,13 @@ Competitive-Programming/
 ├── 1100/                                 # Rating 1100: Pattern recognition (Active target)
 ├── 1200/                                 # Rating 1200: Foundational algorithms (Active target)
 ├── ...                                   # Scalable hierarchy up to 2000+
+├── scripts/                              # Repository automation & README sync workflows
+├── metadata/                             # Local problem metadata & API cache
 ├── COMPETITIVE_PROGRAMMING_ROADMAP.md    # In-depth 14-chapter curriculum & theoretical syllabus
 ├── .gitignore                            # Standard build & binary exclusion rules
 └── README.md                             # Repository documentation
 ```
+<!-- AUTO-GEN:DIRECTORY_STRUCTURE:END -->
 
 ### File Naming Convention
 
@@ -114,6 +119,7 @@ Every solution follows a standardized, machine-readable format:
 
 The tier hierarchy serves as a progressive training benchmark. Each rating bracket isolates specific cognitive hurdles and implementation skills:
 
+<!-- AUTO-GEN:RATING_TABLE:START -->
 | Rating Tier | Difficulty Level | Primary Cognitive Focus | Status |
 | :---: | :---: | :--- | :---: |
 | **800** | Beginner | Basic implementation, condition checking, array manipulation | [8 Solved](./800/) |
@@ -127,9 +133,11 @@ The tier hierarchy serves as a progressive training benchmark. Each rating brack
 | **1600** | Advanced | Stronger mathematical reasoning, trees, segment trees, game theory | *Target* |
 | **1700–1900** | Advanced | Complex algorithms, flow networks, DP optimizations, advanced DS | *Target* |
 | **2000+** | Expert | Master-level reductions, advanced graph theory, ICPC Regional sets | *Target* |
+<!-- AUTO-GEN:RATING_TABLE:END -->
 
 ### Current Repository Metrics
 
+<!-- AUTO-GEN:METRICS:START -->
 *Statistics verified directly from current workspace source files:*
 
 - **Total Solutions Stored**: 19 files
@@ -141,9 +149,11 @@ The tier hierarchy serves as a progressive training benchmark. Each rating brack
   - **800**: 8 solutions
   - **900**: 8 unique problems (7 C++, 2 Python — *208A implemented in both languages*)
   - **1000**: 2 solutions
+<!-- AUTO-GEN:METRICS:END -->
 
 ### Verified Solution Archive
 
+<!-- AUTO-GEN:ARCHIVE:START -->
 <details open>
 <summary><b>Click to expand / collapse full problem index (18 problems)</b></summary>
 
@@ -151,13 +161,13 @@ The tier hierarchy serves as a progressive training benchmark. Each rating brack
 
 | Rating | Code | Problem Title | Solution | Language | Platform Link |
 | :---: | :---: | :--- | :---: | :---: | :---: |
+| `800` | **50A** | Domino piling | [`800_50A.cpp`](./800/800_50A.cpp) | C++20 | [Codeforces 50A](https://codeforces.com/problemset/problem/50/A) |
 | `800` | **112A** | Petya and Strings | [`800_112A.cpp`](./800/800_112A.cpp) | C++20 | [Codeforces 112A](https://codeforces.com/problemset/problem/112/A) |
 | `800` | **158A** | Next Round | [`800_158A.cpp`](./800/800_158A.cpp) | C++20 | [Codeforces 158A](https://codeforces.com/problemset/problem/158/A) |
 | `800` | **236A** | Boy or Girl | [`800_236A.cpp`](./800/800_236A.cpp) | C++20 | [Codeforces 236A](https://codeforces.com/problemset/problem/236/A) |
 | `800` | **263A** | Beautiful Matrix | [`800_263A.cpp`](./800/800_263A.cpp) | C++20 | [Codeforces 263A](https://codeforces.com/problemset/problem/263/A) |
 | `800` | **281A** | Word Capitalization | [`800_281A.cpp`](./800/800_281A.cpp) | C++20 | [Codeforces 281A](https://codeforces.com/problemset/problem/281/A) |
 | `800` | **339A** | Helpful Maths | [`800_339A.cpp`](./800/800_339A.cpp) | C++20 | [Codeforces 339A](https://codeforces.com/problemset/problem/339/A) |
-| `800` | **50A** | Domino piling | [`800_50A.cpp`](./800/800_50A.cpp) | C++20 | [Codeforces 50A](https://codeforces.com/problemset/problem/50/A) |
 | `800` | **791A** | Bear and Big Brother | [`800_791A.cpp`](./800/800_791A.cpp) | C++20 | [Codeforces 791A](https://codeforces.com/problemset/problem/791/A) |
 | `900` | **96A** | Football | [`900_96A.cpp`](./900/900_96A.cpp) | C++20 | [Codeforces 96A](https://codeforces.com/problemset/problem/96/A) |
 | `900` | **133A** | HQ9+ | [`900_133A.cpp`](./900/900_133A.cpp) | C++20 | [Codeforces 133A](https://codeforces.com/problemset/problem/133/A) |
@@ -171,6 +181,7 @@ The tier hierarchy serves as a progressive training benchmark. Each rating brack
 | `1000` | **1346A** | Color Revolution | [`1000_1346A.cpp`](./1000/1000_1346A.cpp) | C++20 | [Codeforces 1346A](https://codeforces.com/problemset/problem/1346/A) |
 
 </details>
+<!-- AUTO-GEN:ARCHIVE:END -->
 
 ---
 

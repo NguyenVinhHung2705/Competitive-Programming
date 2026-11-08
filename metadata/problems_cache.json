@@ -1,0 +1,221 @@
+{
+  "_comment": "Codeforces problem metadata cache",
+  "problems": {
+    "50A": {
+      "contestId": 50,
+      "index": "A",
+      "name": "Domino piling",
+      "rating": 800,
+      "tags": [
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/50/A",
+      "is_codeforces": true
+    },
+    "112A": {
+      "contestId": 112,
+      "index": "A",
+      "name": "Petya and Strings",
+      "rating": 800,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/112/A",
+      "is_codeforces": true
+    },
+    "158A": {
+      "contestId": 158,
+      "index": "A",
+      "name": "Next Round",
+      "rating": 800,
+      "tags": [
+        "*special",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/158/A",
+      "is_codeforces": true
+    },
+    "236A": {
+      "contestId": 236,
+      "index": "A",
+      "name": "Boy or Girl",
+      "rating": 800,
+      "tags": [
+        "brute force",
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/236/A",
+      "is_codeforces": true
+    },
+    "263A": {
+      "contestId": 263,
+      "index": "A",
+      "name": "Beautiful Matrix",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/263/A",
+      "is_codeforces": true
+    },
+    "281A": {
+      "contestId": 281,
+      "index": "A",
+      "name": "Word Capitalization",
+      "rating": 800,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/281/A",
+      "is_codeforces": true
+    },
+    "339A": {
+      "contestId": 339,
+      "index": "A",
+      "name": "Helpful Maths",
+      "rating": 800,
+      "tags": [
+        "greedy",
+        "implementation",
+        "sortings",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/339/A",
+      "is_codeforces": true
+    },
+    "791A": {
+      "contestId": 791,
+      "index": "A",
+      "name": "Bear and Big Brother",
+      "rating": 800,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/791/A",
+      "is_codeforces": true
+    },
+    "96A": {
+      "contestId": 96,
+      "index": "A",
+      "name": "Football",
+      "rating": 900,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/96/A",
+      "is_codeforces": true
+    },
+    "133A": {
+      "contestId": 133,
+      "index": "A",
+      "name": "HQ9+",
+      "rating": 900,
+      "tags": [
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/133/A",
+      "is_codeforces": true
+    },
+    "160A": {
+      "contestId": 160,
+      "index": "A",
+      "name": "Twins",
+      "rating": 900,
+      "tags": [
+        "greedy",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/160/A",
+      "is_codeforces": true
+    },
+    "208A": {
+      "contestId": 208,
+      "index": "A",
+      "name": "Dubstep",
+      "rating": 900,
+      "tags": [
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/208/A",
+      "is_codeforces": true
+    },
+    "318A": {
+      "contestId": 318,
+      "index": "A",
+      "name": "Even Odds",
+      "rating": 900,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/318/A",
+      "is_codeforces": true
+    },
+    "337A": {
+      "contestId": 337,
+      "index": "A",
+      "name": "Puzzles",
+      "rating": 900,
+      "tags": [
+        "greedy"
+      ],
+      "url": "https://codeforces.com/problemset/problem/337/A",
+      "is_codeforces": true
+    },
+    "405A": {
+      "contestId": 405,
+      "index": "A",
+      "name": "Gravity Flip",
+      "rating": 900,
+      "tags": [
+        "greedy",
+        "implementation",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/405/A",
+      "is_codeforces": true
+    },
+    "580A": {
+      "contestId": 580,
+      "index": "A",
+      "name": "Kefa and First Steps",
+      "rating": 900,
+      "tags": [
+        "brute force",
+        "dp",
+        "implementation"
+      ],
+      "url": "https://codeforces.com/problemset/problem/580/A",
+      "is_codeforces": true
+    },
+    "90A": {
+      "contestId": 90,
+      "index": "A",
+      "name": "Cableway",
+      "rating": 1000,
+      "tags": [
+        "greedy",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/90/A",
+      "is_codeforces": true
+    },
+    "1346A": {
+      "contestId": 1346,
+      "index": "A",
+      "name": "Color Revolution",
+      "rating": 1000,
+      "tags": [
+        "*special",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1346/A",
+      "is_codeforces": true
+    }
+  },
+  "last_updated": "2026-11-08T15:21:12.310057+00:00"
+}
