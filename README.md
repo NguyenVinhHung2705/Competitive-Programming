@@ -72,6 +72,8 @@ Problems are categorized into dedicated directories matching their **Codeforces 
 <!-- AUTO-GEN:DIRECTORY_STRUCTURE:START -->
 ```text
 Competitive-Programming/
+├── .github/workflows/                    # GitHub Actions CI/CD automation
+│   └── update-readme.yml                 # Immediate push-triggered README sync
 ├── 800/                                  # Rating 800: Basic implementation & simulation
 │   ├── 800_50A.cpp
 │   ├── 800_112A.cpp
@@ -90,9 +92,16 @@ Competitive-Programming/
 ├── 1100/                                 # Rating 1100: Pattern recognition (Active target)
 ├── 1200/                                 # Rating 1200: Foundational algorithms (Active target)
 ├── ...                                   # Scalable hierarchy up to 2000+
-├── scripts/                              # Repository automation & README sync workflows
 ├── metadata/                             # Local problem metadata & API cache
+│   └── problems_cache.json               # Offline problem definitions & tags
+├── scripts/                              # Repository automation & README sync engine
+│   ├── codeforces_api.py                 # Codeforces API client & cache resolver
+│   ├── config.py                         # Configurations & language definitions
+│   ├── install_hooks.py                  # Local Git pre-push hook manager
+│   └── update_readme.py                  # Main synchronization script
 ├── COMPETITIVE_PROGRAMMING_ROADMAP.md    # In-depth 14-chapter curriculum & theoretical syllabus
+├── README_AUTOMATION.md                  # Comprehensive automation guide & workflows
+├── requirements.txt                      # Python dependencies (requests)
 ├── .gitignore                            # Standard build & binary exclusion rules
 └── README.md                             # Repository documentation
 ```
@@ -122,7 +131,7 @@ The tier hierarchy serves as a progressive training benchmark. Each rating brack
 <!-- AUTO-GEN:RATING_TABLE:START -->
 | Rating Tier | Difficulty Level | Primary Cognitive Focus | Status |
 | :---: | :---: | :--- | :---: |
-| **800** | Beginner | Basic implementation, condition checking, array manipulation | [8 Solved](./800/) |
+| **800** | Beginner | Basic implementation, condition checking, array manipulation | [9 Solved](./800/) |
 | **900** | Beginner | Elementary problem solving, basic math, brute-force reasoning | [8 Solved (9 files)](./900/) |
 | **1000** | Elementary | Basic algorithms, greedy observations, coordinate transformations | [2 Solved](./1000/) |
 | **1100** | Elementary | Pattern recognition, sorting techniques, number theory basics | *In Progress* |
@@ -140,13 +149,13 @@ The tier hierarchy serves as a progressive training benchmark. Each rating brack
 <!-- AUTO-GEN:METRICS:START -->
 *Statistics verified directly from current workspace source files:*
 
-- **Total Solutions Stored**: 19 files
-- **Unique Problems Solved**: 18
+- **Total Solutions Stored**: 20 files
+- **Unique Problems Solved**: 19
 - **Language Distribution**:
-  - **C++ (C++17 / C++20)**: 17 solutions
+  - **C++ (C++17 / C++20)**: 18 solutions
   - **Python (Python 3)**: 2 solutions
 - **Rating Distribution**:
-  - **800**: 8 solutions
+  - **800**: 9 solutions
   - **900**: 8 unique problems (7 C++, 2 Python — *208A implemented in both languages*)
   - **1000**: 2 solutions
 <!-- AUTO-GEN:METRICS:END -->
@@ -155,7 +164,7 @@ The tier hierarchy serves as a progressive training benchmark. Each rating brack
 
 <!-- AUTO-GEN:ARCHIVE:START -->
 <details open>
-<summary><b>Click to expand / collapse full problem index (18 problems)</b></summary>
+<summary><b>Click to expand / collapse full problem index (19 problems)</b></summary>
 
 <br/>
 
@@ -168,6 +177,7 @@ The tier hierarchy serves as a progressive training benchmark. Each rating brack
 | `800` | **263A** | Beautiful Matrix | [`800_263A.cpp`](./800/800_263A.cpp) | C++20 | [Codeforces 263A](https://codeforces.com/problemset/problem/263/A) |
 | `800` | **281A** | Word Capitalization | [`800_281A.cpp`](./800/800_281A.cpp) | C++20 | [Codeforces 281A](https://codeforces.com/problemset/problem/281/A) |
 | `800` | **339A** | Helpful Maths | [`800_339A.cpp`](./800/800_339A.cpp) | C++20 | [Codeforces 339A](https://codeforces.com/problemset/problem/339/A) |
+| `800` | **617A** | Elephant | [`800_617A.cpp`](./800/800_617A.cpp) | C++20 | [Codeforces 617A](https://codeforces.com/problemset/problem/617/A) |
 | `800` | **791A** | Bear and Big Brother | [`800_791A.cpp`](./800/800_791A.cpp) | C++20 | [Codeforces 791A](https://codeforces.com/problemset/problem/791/A) |
 | `900` | **96A** | Football | [`900_96A.cpp`](./900/900_96A.cpp) | C++20 | [Codeforces 96A](https://codeforces.com/problemset/problem/96/A) |
 | `900` | **133A** | HQ9+ | [`900_133A.cpp`](./900/900_133A.cpp) | C++20 | [Codeforces 133A](https://codeforces.com/problemset/problem/133/A) |

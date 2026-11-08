@@ -1,69 +1,80 @@
-# Automated README Synchronization System (Local & Cloud GitHub Actions)
+# Automated README Synchronization System (Immediate Git Push & Cloud Workflow)
 
 This document provides a comprehensive guide to the **Competitive Programming README Automation System** designed for continuous preparation toward **ICPC 2027**.
 
-The automation operates in two complementary modes:
-1. **Cloud Automation (GitHub Actions)**: Fully autonomous execution running on GitHub-hosted runners — synchronizes your repository even when your personal computer is powered down, sleeping, or offline.
+The automation operates in two modes:
+1. **Immediate Cloud Automation (GitHub Actions)**: Automatically synchronizes `README.md` immediately whenever new solution files are pushed to GitHub — running on GitHub-hosted runners even when your local machine is shut down, sleeping, or offline.
 2. **Local CLI Execution**: On-demand and Git-hook-driven execution for offline development and local validation.
 
 ---
 
-## 1. Cloud Automation Architecture (GitHub Actions)
+## 1. Immediate Cloud Automation Architecture (GitHub Actions)
 
-The cloud workflow runs on GitHub-hosted Ubuntu runners, automatically scanning the codebase, recalculating metrics, resolving metadata, and committing updates to `README.md`.
+The cloud workflow runs on GitHub-hosted Ubuntu runners immediately upon pushing new solution files:
 
 ```
-               [Daily Schedule: 23:00 ICT (16:00 UTC)]
-                                 OR
-               [git push to main in [0-9]*/** or scripts/**]
-                                 OR
-               [Manual trigger: workflow_dispatch]
-                                 |
-                                 v
-               +-----------------------------------+
-               |  GitHub Actions (ubuntu-latest)   |
-               |  .github/workflows/               |
-               |  update-readme.yml                |
-               +-----------------+-----------------+
-                                 |
-        +------------------------+------------------------+
-        |                                                 |
-        v                                                 v
-+-------------------------------+             +-------------------------------+
-| 1. Checkout Repository        |             | 2. Setup Python 3.12          |
-|    (actions/checkout@v4)      |             |    & Install Dependencies     |
-+---------------+---------------+             +---------------+---------------+
-                |                                             |
-                +----------------------+----------------------+
+               [git push to main with solution files in [0-9]*/**]
+                                       OR
+                       [Manual trigger: workflow_dispatch]
                                        |
                                        v
-                        +-------------------------------+
-                        | 3. Execute Updater            |
-                        |    python scripts/            |
-                        |    update_readme.py           |
-                        +--------------+----------------+
+                     +-----------------------------------+
+                     |  GitHub Actions (ubuntu-latest)   |
+                     |  .github/workflows/               |
+                     |  update-readme.yml                |
+                     +-----------------+-----------------+
                                        |
-                   +-------------------+-------------------+
-                   |                                       |
-                   | (No changes)                          | (Changes detected)
-                   v                                       v
-    +-----------------------------+         +-------------------------------+
-    | No commit created           |         | Configure git identity:       |
-    | Exit 0 (Clean finish)       |         | github-actions[bot]           |
-    +-----------------------------+         +---------------+---------------+
-                                                            |
-                                                            v
-                                            +-------------------------------+
-                                            | Stage & Commit:               |
-                                            | git add README.md             |
-                                            | git commit -m "docs: auto..." |
-                                            +---------------+---------------+
-                                                            |
-                                                            v
-                                            +-------------------------------+
-                                            | Push to default branch (main) |
-                                            | (GITHUB_TOKEN permissions)    |
-                                            +-------------------------------+
+              +------------------------+------------------------+
+              |                                                 |
+              v                                                 v
+      +-------------------------------+             +-------------------------------+
+      | 1. Checkout Repository        |             | 2. Setup Python 3.12          |
+      |    (actions/checkout@v4)      |             |    & Install Dependencies     |
+      +---------------+---------------+             +---------------+---------------+
+                      |                                             |
+                      +----------------------+----------------------+
+                                             |
+                                             v
+                              +-------------------------------+
+                              | 3. Execute Updater            |
+                              |    python scripts/            |
+                              |    update_readme.py           |
+                              +--------------+----------------+
+                                             |
+                                             v
+                              +-------------------------------+
+                              | 4. Validate Generated Content |
+                              |    python scripts/            |
+                              |    update_readme.py --check   |
+                              +--------------+----------------+
+                                             |
+                         +-------------------+-------------------+
+                         |                                       |
+                         | (No changes)                          | (Changes detected)
+                         v                                       v
+          +-----------------------------+         +-------------------------------+
+          | No commit created           |         | Pull latest remote branch:    |
+          | Exit 0 (Clean finish)       |         | git pull --rebase origin main |
+          +-----------------------------+         +---------------+---------------+
+                                                                  |
+                                                                  v
+                                                  +-------------------------------+
+                                                  | Configure bot identity:       |
+                                                  | github-actions[bot]           |
+                                                  +---------------+---------------+
+                                                                  |
+                                                                  v
+                                                  +-------------------------------+
+                                                  | Stage README.md only:         |
+                                                  | git add README.md             |
+                                                  | git commit -m "docs: auto..." |
+                                                  +---------------+---------------+
+                                                                  |
+                                                                  v
+                                                  +-------------------------------+
+                                                  | Push to default branch (main) |
+                                                  | (GITHUB_TOKEN permissions)    |
+                                                  +-------------------------------+
 ```
 
 ---
@@ -75,40 +86,67 @@ The workflow file is located at:
 .github/workflows/update-readme.yml
 ```
 
-### 1. Triggers
+### 1. Push Trigger & Precision Path Filtering
 
-- **Scheduled Execution (Cron)**:
-  Runs daily at **23:00 Vietnam time (UTC+7)**, which corresponds to **16:00 UTC**:
-  ```yaml
-  schedule:
-    - cron: '0 16 * * *'
-  ```
-- **Push Trigger (Path-Filtered)**:
-  Runs automatically whenever new solution files are pushed to `main`:
-  ```yaml
+The workflow triggers immediately when changes are pushed to `main`, but **strictly targets solution files** located inside rating directories:
+
+```yaml
+'on':
   push:
     branches:
       - main
     paths:
-      - '[0-9]*/**'    # Triggers on rating folders (800/, 900/, 1000/, etc.)
-      - 'scripts/**'   # Triggers on updater script improvements
-  ```
-- **Manual Trigger (`workflow_dispatch`)**:
-  Allows on-demand execution directly from the GitHub web interface or GitHub CLI.
+      - '[0-9]*/*.cpp'
+      - '[0-9]*/*.cc'
+      - '[0-9]*/*.cxx'
+      - '[0-9]*/*.py'
+      - '[0-9]*/*.c'
+      - '[0-9]*/*.java'
+      - '[0-9]*/*.rs'
+      - '[0-9]*/*.go'
+      - '[0-9]*/*.kt'
+      - '[0-9]*/*.cs'
+      - '[0-9]*/**/*.cpp'
+      - '[0-9]*/**/*.cc'
+      - '[0-9]*/**/*.cxx'
+      - '[0-9]*/**/*.py'
+      - '[0-9]*/**/*.c'
+      - '[0-9]*/**/*.java'
+      - '[0-9]*/**/*.rs'
+      - '[0-9]*/**/*.go'
+      - '[0-9]*/**/*.kt'
+      - '[0-9]*/**/*.cs'
+  workflow_dispatch:
+```
 
-### 2. Concurrency & Infinite Loop Prevention
+### 2. Path Filter Isolation Guarantees
 
-To guarantee that the automation never runs in infinite execution loops or collides with itself:
-1. **Path Filtering**: The push trigger only monitors solution folders (`[0-9]*/**`) and `scripts/**`. It explicitly ignores `README.md`. Therefore, commits pushed by the bot (which only touch `README.md`) will **never** trigger another run.
-2. **`GITHUB_TOKEN` Protection**: By design, commits created with the default `GITHUB_TOKEN` do not trigger new workflow runs on push events.
-3. **Change Detection (`git diff --quiet`)**: If no documentation changes are produced, the workflow exits cleanly without generating empty commits.
+| File Changed on Push | Triggers Workflow? | Reason |
+|---|---|---|
+| `800/800_112A.cpp` | **YES** | Matches `[0-9]*/*.cpp` |
+| `900/900_208A.py` | **YES** | Matches `[0-9]*/*.py` |
+| `1000/1000_90A.cpp` | **YES** | Matches `[0-9]*/*.cpp` |
+| `1100/1100_123A.cpp` | **YES** | Matches `[0-9]*/*.cpp` (new rating tier) |
+| `README.md` | **NO** | Excluded; does not match rating directory pattern |
+| `README_AUTOMATION.md` | **NO** | Excluded; documentation change |
+| `scripts/update_readme.py` | **NO** | Excluded; `scripts/` does not start with `[0-9]` |
+| `scripts/codeforces_api.py`| **NO** | Excluded; automation script change |
+| `.github/workflows/*.yml` | **NO** | Excluded; workflow definition change |
+| `metadata/problems_cache.json` | **NO** | Excluded; cache change |
+| `requirements.txt` | **NO** | Excluded; root dependency change |
+
+### 3. Concurrency & Infinite Loop Prevention
+
+1. **Path-Filtered Push**: Commits generated by the bot touch `README.md` only. Since `README.md` does not match the `paths` filter, the bot's commit will **never** trigger a new workflow run.
+2. **Native `GITHUB_TOKEN` Isolation**: GitHub Actions inherently does not trigger workflow runs from events initiated by the built-in `GITHUB_TOKEN`.
+3. **Change Detection (`git diff --quiet`)**: If no metrics or problems changed, the workflow exits `0` without committing.
 4. **Concurrency Control**:
    ```yaml
    concurrency:
      group: update-readme
      cancel-in-progress: false
    ```
-   Ensures that only one synchronization job runs at a time, preventing race conditions.
+   Ensures that consecutive pushes are queued and executed sequentially without merge conflicts.
 
 ---
 
@@ -120,9 +158,9 @@ To allow GitHub Actions to commit the updated `README.md` back to your repositor
    ```text
    https://github.com/NguyenVinhHung2705/ICPC_/settings/actions
    ```
-2. Under **Workflow permissions**, verify:
-   - Select: **Read and write permissions**
-   - Check: **Allow GitHub Actions to create and approve pull requests** (optional, recommended)
+2. Under **Workflow permissions**:
+   - Select **Read and write permissions**
+   - Check **Allow GitHub Actions to create and approve pull requests** (optional, recommended)
 3. Click **Save**.
 
 > [!NOTE]
@@ -136,7 +174,7 @@ You can run the synchronization at any moment via the GitHub web interface:
 
 1. Open your repository on GitHub: `https://github.com/NguyenVinhHung2705/ICPC_`.
 2. Click the **Actions** tab.
-3. In the left sidebar, click **Automated README Synchronization**.
+3. In the left sidebar, click **Immediate README Synchronization**.
 4. Click the **Run workflow** dropdown on the right.
 5. Select branch `main` and click **Run workflow**.
 
@@ -150,7 +188,7 @@ gh workflow run update-readme.yml
 ## 5. Inspecting Cloud Execution Logs
 
 1. Go to the **Actions** tab on GitHub.
-2. Click on the latest workflow run (e.g., `Automated README Synchronization #4`).
+2. Click on the latest workflow run (e.g., `Immediate README Synchronization #1`).
 3. Click on the **Synchronize README.md** job.
 4. Expand the **Execute README updater** or **Commit and push changes** step to view the detailed summary:
    ```text
@@ -256,19 +294,20 @@ If a problem is solved in both C++ and Python (e.g. `900_208A.cpp` and `900_208A
 
 ---
 
-## 9. Typical Cloud-First Workflow
+## 9. Day-to-Day Developer Experience
 
-With GitHub Actions enabled, your day-to-day workflow is as simple as:
+With Immediate Cloud Automation configured, your workflow is frictionless:
 
 ```text
-1. Solve a problem (e.g., create 1000/1000_123A.cpp)
-2. Commit: git add 1000/ && git commit -m "feat(1000): solve 123A"
+1. Solve a problem (e.g., create 1100/1100_158B.cpp)
+2. Commit: git add 1100/ && git commit -m "feat(1100): solve 158B"
 3. Push: git push origin main
 4. Done!
-   GitHub Actions automatically:
-     - Scans the new solution
-     - Fetches problem metadata
-     - Updates README.md statistics
-     - Commits: "docs: automatically synchronize README statistics"
+   GitHub Actions immediately triggers in the cloud:
+     - Scans the newly pushed solution
+     - Fetches official problem metadata from Codeforces
+     - Recalculates metrics and rating distribution
+     - Updates README.md
+     - Commits: "docs: automatically update README after new solutions"
 ```
-Even if you push from a mobile device or web editor, or if your PC is shut down, GitHub Actions keeps your archive documentation synchronized and pristine.
+No manual README edits. No bookkeeping mistakes. Total synchronization.

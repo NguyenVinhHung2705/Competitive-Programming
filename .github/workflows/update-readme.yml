@@ -1,16 +1,31 @@
-name: Automated README Synchronization
+name: Immediate README Synchronization
 
 'on':
-  schedule:
-    # 23:00 Vietnam time (UTC+7) corresponds to 16:00 UTC
-    - cron: '0 16 * * *'
-  workflow_dispatch:
   push:
     branches:
       - main
     paths:
-      - '[0-9]*/**'
-      - 'scripts/**'
+      - '[0-9]*/*.cpp'
+      - '[0-9]*/*.cc'
+      - '[0-9]*/*.cxx'
+      - '[0-9]*/*.py'
+      - '[0-9]*/*.c'
+      - '[0-9]*/*.java'
+      - '[0-9]*/*.rs'
+      - '[0-9]*/*.go'
+      - '[0-9]*/*.kt'
+      - '[0-9]*/*.cs'
+      - '[0-9]*/**/*.cpp'
+      - '[0-9]*/**/*.cc'
+      - '[0-9]*/**/*.cxx'
+      - '[0-9]*/**/*.py'
+      - '[0-9]*/**/*.c'
+      - '[0-9]*/**/*.java'
+      - '[0-9]*/**/*.rs'
+      - '[0-9]*/**/*.go'
+      - '[0-9]*/**/*.kt'
+      - '[0-9]*/**/*.cs'
+  workflow_dispatch:
 
 concurrency:
   group: update-readme
@@ -46,6 +61,10 @@ jobs:
         run: |
           python scripts/update_readme.py
 
+      - name: Validate generated README content
+        run: |
+          python scripts/update_readme.py --check
+
       - name: Commit and push changes if README.md updated
         run: |
           if git diff --quiet README.md; then
@@ -53,9 +72,13 @@ jobs:
             exit 0
           fi
 
-          echo "Synchronized changes detected in README.md. Committing..."
+          echo "Synchronized changes detected in README.md."
+          
+          # Rebase on latest remote branch state before committing to avoid conflicts
+          git pull --rebase origin main || true
+
           git config --local user.name "github-actions[bot]"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add README.md
-          git commit -m "docs: automatically synchronize README statistics"
-          git push origin ${{ github.ref_name }}
+          git commit -m "docs: automatically update README after new solutions"
+          git push origin main

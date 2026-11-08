@@ -56,7 +56,7 @@ if [ $CHECK_STATUS -ne 0 ]; then
     echo ""
     echo "   1. Review changes:  git diff README.md"
     echo "   2. Stage files:     git add README.md metadata/"
-    echo "   3. Commit updates:  git commit -m \\"docs: sync README statistics\\""
+    echo "   3. Commit updates:  git commit -m \\"docs: automatically update README after new solutions\\""
     echo "   4. Push to GitHub:  git push"
     echo "=========================================================="
     echo ""

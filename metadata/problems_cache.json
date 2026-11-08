@@ -215,7 +215,18 @@
       ],
       "url": "https://codeforces.com/problemset/problem/1346/A",
       "is_codeforces": true
+    },
+    "617A": {
+      "contestId": 617,
+      "index": "A",
+      "name": "Elephant",
+      "rating": 800,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/617/A",
+      "is_codeforces": true
     }
   },
-  "last_updated": "2026-11-08T15:21:12.310057+00:00"
+  "last_updated": "2026-11-08T16:09:09.650482+00:00"
 }

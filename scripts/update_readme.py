@@ -134,6 +134,10 @@ class RepositoryScanner:
                         f"Rating mismatch: File '{filename}' has prefix '{file_rating}' but resides in '{dir_rating}/'."
                     )
 
+                # Silently ignore compiled binary and object files
+                if ext in [".exe", ".o", ".obj", ".out", ".class", ".pdb", ".ilk", ".idb", ".dylib", ".so", ".dll"]:
+                    continue
+
                 if ext not in SUPPORTED_LANGUAGES:
                     self.warnings.append(f"Unrecognized language extension '{ext}' in file '{filename}'.")
                     continue
@@ -195,6 +199,16 @@ class ReadmeGenerator:
             "Competitive-Programming/",
         ]
 
+        def add_tree_line(prefix_text: str, comment: str) -> None:
+            padding = max(1, 42 - len(prefix_text))
+            lines.append(f"{prefix_text}{' ' * padding}# {comment}")
+
+        # Check .github workflows
+        workflow_file = REPO_ROOT / ".github" / "workflows" / "update-readme.yml"
+        if workflow_file.exists():
+            add_tree_line("├── .github/workflows/", "GitHub Actions CI/CD automation")
+            add_tree_line("│   └── update-readme.yml", "Immediate push-triggered README sync")
+
         # Map problems by rating
         rating_groups: Dict[int, List[Problem]] = {}
         for p in self.scanner.get_sorted_problems():
@@ -224,8 +238,7 @@ class ReadmeGenerator:
                 
                 # Format directory line with padding to column 43
                 dir_line = f"├── {r}/"
-                padding = max(1, 42 - len(dir_line))
-                lines.append(f"{dir_line}{' ' * padding}# {tree_comment}")
+                add_tree_line(dir_line, tree_comment)
 
                 # List files in rating folder
                 files_in_rating = []
@@ -253,29 +266,49 @@ class ReadmeGenerator:
                         t_comment = f"Rating {r}: {t_comment}"
                     
                     dir_line = f"├── {r}/"
-                    padding = max(1, 42 - len(dir_line))
-                    lines.append(f"{dir_line}{' ' * padding}# {t_comment}")
+                    add_tree_line(dir_line, t_comment)
 
         # Summary branch and companion files
-        lines.append(f"├── ...{' ' * (42 - 7)}# Scalable hierarchy up to 2000+")
+        add_tree_line("├── ...", "Scalable hierarchy up to 2000+")
         
-        # Check if scripts and metadata directories exist on disk
-        if (REPO_ROOT / "scripts").exists():
-            scripts_line = "├── scripts/"
-            lines.append(f"{scripts_line}{' ' * (42 - len(scripts_line))}# Repository automation & README sync workflows")
-        if (REPO_ROOT / "metadata").exists():
-            meta_line = "├── metadata/"
-            lines.append(f"{meta_line}{' ' * (42 - len(meta_line))}# Local problem metadata & API cache")
+        # Check metadata directory
+        meta_dir = REPO_ROOT / "metadata"
+        if meta_dir.exists():
+            add_tree_line("├── metadata/", "Local problem metadata & API cache")
+            cache_file = meta_dir / "problems_cache.json"
+            if cache_file.exists():
+                add_tree_line("│   └── problems_cache.json", "Offline problem definitions & tags")
 
-        roadmap_line = "├── COMPETITIVE_PROGRAMMING_ROADMAP.md"
-        pad_roadmap = max(1, 42 - len(roadmap_line))
-        lines.append(f"{roadmap_line}{' ' * pad_roadmap}# In-depth 14-chapter curriculum & theoretical syllabus")
+        # Check scripts directory
+        scripts_dir = REPO_ROOT / "scripts"
+        if scripts_dir.exists():
+            add_tree_line("├── scripts/", "Repository automation & README sync engine")
+            script_files = sorted([f.name for f in scripts_dir.glob("*.py")])
+            for idx, sname in enumerate(script_files):
+                prefix = "└── " if idx == len(script_files) - 1 else "├── "
+                script_comments = {
+                    "codeforces_api.py": "Codeforces API client & cache resolver",
+                    "config.py": "Configurations & language definitions",
+                    "install_hooks.py": "Local Git pre-push hook manager",
+                    "update_readme.py": "Main synchronization script",
+                }
+                s_desc = script_comments.get(sname, "Automation script")
+                add_tree_line(f"│   {prefix}{sname}", s_desc)
 
-        gitignore_line = "├── .gitignore"
-        lines.append(f"{gitignore_line}{' ' * (42 - len(gitignore_line))}# Standard build & binary exclusion rules")
+        if (REPO_ROOT / "COMPETITIVE_PROGRAMMING_ROADMAP.md").exists():
+            add_tree_line("├── COMPETITIVE_PROGRAMMING_ROADMAP.md", "In-depth 14-chapter curriculum & theoretical syllabus")
 
-        readme_line = "└── README.md"
-        lines.append(f"{readme_line}{' ' * (42 - len(readme_line))}# Repository documentation")
+        if (REPO_ROOT / "README_AUTOMATION.md").exists():
+            add_tree_line("├── README_AUTOMATION.md", "Comprehensive automation guide & workflows")
+
+        if (REPO_ROOT / "requirements.txt").exists():
+            add_tree_line("├── requirements.txt", "Python dependencies (requests)")
+
+        if (REPO_ROOT / ".gitignore").exists():
+            add_tree_line("├── .gitignore", "Standard build & binary exclusion rules")
+
+        if (REPO_ROOT / "README.md").exists():
+            add_tree_line("└── README.md", "Repository documentation")
 
         lines.append("```")
         return "\n".join(lines)
