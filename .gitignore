@@ -1,0 +1,184 @@
+# ==========================================
+# C++ BUILD FILES
+# ==========================================
+
+# Executable files
+*.exe
+*.out
+*.app
+*.dll
+*.so
+*.dylib
+
+# Object and compiled files
+*.o
+*.obj
+*.a
+*.lib
+*.lo
+*.la
+*.pch
+*.gch
+*.class
+
+# Debug files
+*.pdb
+*.ilk
+*.idb
+*.dSYM/
+
+# CMake
+cmake-build-*/
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# Build directories
+build/
+bin/
+obj/
+dist/
+
+# ==========================================
+# PYTHON
+# ==========================================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+
+# Testing and coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# ==========================================
+# JAVA / MAVEN / GRADLE
+# ==========================================
+
+*.class
+*.jar
+*.war
+*.ear
+
+target/
+.gradle/
+build/
+
+# ==========================================
+# IDE AND EDITORS
+# ==========================================
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# VS Code
+.vscode/*
+!.vscode/extensions.json
+!.vscode/launch.json
+!.vscode/tasks.json
+
+# JetBrains
+.idea/
+*.iml
+*.iws
+*.ipr/
+
+# ==========================================
+# OPERATING SYSTEM
+# ==========================================
+
+# Windows
+Thumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# ==========================================
+# LOGS AND TEMPORARY FILES
+# ==========================================
+
+*.log
+*.tmp
+*.temp
+*.bak
+*.swp
+*.swo
+*.orig
+
+# ==========================================
+# ENVIRONMENT AND SECRETS
+# ==========================================
+
+.env
+.env.*
+!.env.example
+
+# Credentials and private keys
+*.pem
+*.key
+*.p12
+*.pfx
+
+# ==========================================
+# DATABASE AND LOCAL DATA
+# ==========================================
+
+*.sqlite
+*.sqlite3
+*.db
+
+# ==========================================
+# LARGE MODEL / ML FILES
+# ==========================================
+
+*.pt
+*.pth
+*.onnx
+*.h5
+*.keras
+*.pkl
+*.joblib
+*.safetensors
+
+# ==========================================
+# LOCAL CONFIGURATION
+# ==========================================
+
+.DS_Store
