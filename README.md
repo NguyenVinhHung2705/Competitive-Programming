@@ -95,14 +95,16 @@ Competitive-Programming/
 
 ### File Naming Convention
 
-Every solution follows a standardized, machine-readable filename:
+Every solution follows a standardized, machine-readable format:
 
-$$\text{\textbf{<rating>\_<problem\_code>.<extension>}}$$
+```text
+<rating>_<problem_code>.<extension>
+```
 
 **Example**: `1000/1000_90A.cpp`
-- `1000`: Problem difficulty rating assigned by Codeforces.
-- `90A`: Official Codeforces problem identifier (Contest `90`, Problem `A`).
-- `.cpp` / `.py`: Implementation language source file.
+- `<rating>`: Problem difficulty rating assigned by Codeforces.
+- `<problem_code>`: Official Codeforces problem identifier (Contest `90`, Problem `A`).
+- `.<extension>`: Implementation language source file (`.cpp` or `.py`).
 
 > **Note**: Directory tiers reflect the **inherent difficulty of the problems**, not personal user rating.
 
@@ -139,6 +141,36 @@ The tier hierarchy serves as a progressive training benchmark. Each rating brack
   - **800**: 8 solutions
   - **900**: 8 unique problems (7 C++, 2 Python — *208A implemented in both languages*)
   - **1000**: 2 solutions
+
+### Verified Solution Archive
+
+<details open>
+<summary><b>Click to expand / collapse full problem index (18 problems)</b></summary>
+
+<br/>
+
+| Rating | Code | Problem Title | Solution | Language | Platform Link |
+| :---: | :---: | :--- | :---: | :---: | :---: |
+| `800` | **112A** | Petya and Strings | [`800_112A.cpp`](./800/800_112A.cpp) | C++20 | [Codeforces 112A](https://codeforces.com/problemset/problem/112/A) |
+| `800` | **158A** | Next Round | [`800_158A.cpp`](./800/800_158A.cpp) | C++20 | [Codeforces 158A](https://codeforces.com/problemset/problem/158/A) |
+| `800` | **236A** | Boy or Girl | [`800_236A.cpp`](./800/800_236A.cpp) | C++20 | [Codeforces 236A](https://codeforces.com/problemset/problem/236/A) |
+| `800` | **263A** | Beautiful Matrix | [`800_263A.cpp`](./800/800_263A.cpp) | C++20 | [Codeforces 263A](https://codeforces.com/problemset/problem/263/A) |
+| `800` | **281A** | Word Capitalization | [`800_281A.cpp`](./800/800_281A.cpp) | C++20 | [Codeforces 281A](https://codeforces.com/problemset/problem/281/A) |
+| `800` | **339A** | Helpful Maths | [`800_339A.cpp`](./800/800_339A.cpp) | C++20 | [Codeforces 339A](https://codeforces.com/problemset/problem/339/A) |
+| `800` | **50A** | Domino piling | [`800_50A.cpp`](./800/800_50A.cpp) | C++20 | [Codeforces 50A](https://codeforces.com/problemset/problem/50/A) |
+| `800` | **791A** | Bear and Big Brother | [`800_791A.cpp`](./800/800_791A.cpp) | C++20 | [Codeforces 791A](https://codeforces.com/problemset/problem/791/A) |
+| `900` | **96A** | Football | [`900_96A.cpp`](./900/900_96A.cpp) | C++20 | [Codeforces 96A](https://codeforces.com/problemset/problem/96/A) |
+| `900` | **133A** | HQ9+ | [`900_133A.cpp`](./900/900_133A.cpp) | C++20 | [Codeforces 133A](https://codeforces.com/problemset/problem/133/A) |
+| `900` | **160A** | Twins | [`900_160A.cpp`](./900/900_160A.cpp) | C++20 | [Codeforces 160A](https://codeforces.com/problemset/problem/160/A) |
+| `900` | **208A** | Dubstep | [`900_208A.cpp`](./900/900_208A.cpp) \| [`900_208A.py`](./900/900_208A.py) | C++20 / Python 3 | [Codeforces 208A](https://codeforces.com/problemset/problem/208/A) |
+| `900` | **318A** | Even Odds | [`900_318A.cpp`](./900/900_318A.cpp) | C++20 | [Codeforces 318A](https://codeforces.com/problemset/problem/318/A) |
+| `900` | **337A** | Puzzles | [`900_337A.py`](./900/900_337A.py) | Python 3 | [Codeforces 337A](https://codeforces.com/problemset/problem/337/A) |
+| `900` | **405A** | Gravity Flip | [`900_405A.cpp`](./900/900_405A.cpp) | C++20 | [Codeforces 405A](https://codeforces.com/problemset/problem/405/A) |
+| `900` | **580A** | Kefa and First Steps | [`900_580A.cpp`](./900/900_580A.cpp) | C++20 | [Codeforces 580A](https://codeforces.com/problemset/problem/580/A) |
+| `1000` | **90A** | Cableway | [`1000_90A.cpp`](./1000/1000_90A.cpp) | C++20 | [Codeforces 90A](https://codeforces.com/problemset/problem/90/A) |
+| `1000` | **1346A** | Color Revolution | [`1000_1346A.cpp`](./1000/1000_1346A.cpp) | C++20 | [Codeforces 1346A](https://codeforces.com/problemset/problem/1346/A) |
+
+</details>
 
 ---
 
@@ -199,7 +231,7 @@ Solving a competitive programming problem is an engineering process governed by 
 1. **Understand Before Coding**  
    Read the problem statement thoroughly. Manually simulate all sample tests and edge cases on paper before touching the keyboard.
 2. **Analyze Constraints First**  
-   Identify the magnitude of $N$, $M$, and $K$. Let constraint limits dictate the permissible asymptotic time complexity ($O(N)$, $O(N \log N)$, $O(N^2)$).
+   Identify the magnitude of `N`, `M`, and `K`. Let constraint limits dictate the permissible asymptotic time complexity (`O(N)`, `O(N log N)`, `O(N^2)`).
 3. **Start with Brute Force**  
    Formulate the naive approach first. Understanding the complete state space is the fastest path to discovering redundancies.
 4. **Identify the Key Observation**  
@@ -207,7 +239,7 @@ Solving a competitive programming problem is an engineering process governed by 
 5. **Optimize Systematically**  
    Replace naive searches with binary search, precomputation (prefix sums), or specialized data structures (Fenwick/Segment trees).
 6. **Prove Correctness Before Submitting**  
-   Ensure the approach holds for extreme bounds ($N = 1$, empty inputs, maximum constraint values, overflow risks requiring 64-bit integer `long long`).
+   Ensure the approach holds for extreme bounds (`N = 1`, empty inputs, maximum constraint values, overflow risks requiring 64-bit integer `long long`).
 7. **Perform Post-Mortem Reviews**  
    For every wrong answer (WA) or time limit exceeded (TLE), analyze the flawed assumption. Compare implementations with top contestant editorials.
 8. **Revisit Difficult Problems**  
