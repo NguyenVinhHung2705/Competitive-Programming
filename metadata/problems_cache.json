@@ -226,7 +226,53 @@
       ],
       "url": "https://codeforces.com/problemset/problem/617/A",
       "is_codeforces": true
+    },
+    "1225A": {
+      "contestId": 1225,
+      "index": "A",
+      "name": "Forgetting Things",
+      "rating": 900,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1225/A",
+      "is_codeforces": true
+    },
+    "1238A": {
+      "contestId": 1238,
+      "index": "A",
+      "name": "Prime Subtraction",
+      "rating": 900,
+      "tags": [
+        "math",
+        "number theory"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1238/A",
+      "is_codeforces": true
+    },
+    "967B": {
+      "contestId": 967,
+      "index": "B",
+      "name": "Watering System",
+      "rating": 1000,
+      "tags": [
+        "math",
+        "sortings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/967/B",
+      "is_codeforces": true
+    },
+    "979A": {
+      "contestId": 979,
+      "index": "A",
+      "name": "Pizza, Pizza, Pizza!!!",
+      "rating": 1000,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/979/A",
+      "is_codeforces": true
     }
   },
-  "last_updated": "2026-11-08T16:13:10.832075+00:00"
+  "last_updated": "2026-11-09T02:33:23.018067+00:00"
 }

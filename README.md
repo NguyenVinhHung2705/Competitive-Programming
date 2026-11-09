@@ -88,6 +88,8 @@ Competitive-Programming/
 │   └── ...
 ├── 1000/                                 # Rating 1000: Basic algorithms & greedy logic
 │   ├── 1000_90A.cpp
+│   ├── 1000_967B.cpp
+│   ├── 1000_979A.cpp
 │   └── 1000_1346A.cpp
 ├── 1100/                                 # Rating 1100: Pattern recognition (Active target)
 ├── 1200/                                 # Rating 1200: Foundational algorithms (Active target)
@@ -132,8 +134,8 @@ The tier hierarchy serves as a progressive training benchmark. Each rating brack
 | Rating Tier | Difficulty Level | Primary Cognitive Focus | Status |
 | :---: | :---: | :--- | :---: |
 | **800** | Beginner | Basic implementation, condition checking, array manipulation | [9 Solved](./800/) |
-| **900** | Beginner | Elementary problem solving, basic math, brute-force reasoning | [8 Solved (9 files)](./900/) |
-| **1000** | Elementary | Basic algorithms, greedy observations, coordinate transformations | [2 Solved](./1000/) |
+| **900** | Beginner | Elementary problem solving, basic math, brute-force reasoning | [10 Solved (11 files)](./900/) |
+| **1000** | Elementary | Basic algorithms, greedy observations, coordinate transformations | [4 Solved](./1000/) |
 | **1100** | Elementary | Pattern recognition, sorting techniques, number theory basics | *In Progress* |
 | **1200** | Intermediate | Algorithmic thinking, prefix sums, two pointers, binary search | *Target* |
 | **1300** | Intermediate | Greedy strategies, constructive algorithms, state space search | *Target* |
@@ -149,22 +151,22 @@ The tier hierarchy serves as a progressive training benchmark. Each rating brack
 <!-- AUTO-GEN:METRICS:START -->
 *Statistics verified directly from current workspace source files:*
 
-- **Total Solutions Stored**: 20 files
-- **Unique Problems Solved**: 19
+- **Total Solutions Stored**: 24 files
+- **Unique Problems Solved**: 23
 - **Language Distribution**:
-  - **C++ (C++17 / C++20)**: 18 solutions
+  - **C++ (C++17 / C++20)**: 22 solutions
   - **Python (Python 3)**: 2 solutions
 - **Rating Distribution**:
   - **800**: 9 solutions
-  - **900**: 8 unique problems (7 C++, 2 Python — *208A implemented in both languages*)
-  - **1000**: 2 solutions
+  - **900**: 10 unique problems (9 C++, 2 Python — *208A implemented in both languages*)
+  - **1000**: 4 solutions
 <!-- AUTO-GEN:METRICS:END -->
 
 ### Verified Solution Archive
 
 <!-- AUTO-GEN:ARCHIVE:START -->
 <details open>
-<summary><b>Click to expand / collapse full problem index (19 problems)</b></summary>
+<summary><b>Click to expand / collapse full problem index (23 problems)</b></summary>
 
 <br/>
 
@@ -187,7 +189,11 @@ The tier hierarchy serves as a progressive training benchmark. Each rating brack
 | `900` | **337A** | Puzzles | [`900_337A.py`](./900/900_337A.py) | Python 3 | [Codeforces 337A](https://codeforces.com/problemset/problem/337/A) |
 | `900` | **405A** | Gravity Flip | [`900_405A.cpp`](./900/900_405A.cpp) | C++20 | [Codeforces 405A](https://codeforces.com/problemset/problem/405/A) |
 | `900` | **580A** | Kefa and First Steps | [`900_580A.cpp`](./900/900_580A.cpp) | C++20 | [Codeforces 580A](https://codeforces.com/problemset/problem/580/A) |
+| `900` | **1225A** | Forgetting Things | [`900_1225A.cpp`](./900/900_1225A.cpp) | C++20 | [Codeforces 1225A](https://codeforces.com/problemset/problem/1225/A) |
+| `900` | **1238A** | Prime Subtraction | [`900_1238A.cpp`](./900/900_1238A.cpp) | C++20 | [Codeforces 1238A](https://codeforces.com/problemset/problem/1238/A) |
 | `1000` | **90A** | Cableway | [`1000_90A.cpp`](./1000/1000_90A.cpp) | C++20 | [Codeforces 90A](https://codeforces.com/problemset/problem/90/A) |
+| `1000` | **967B** | Watering System | [`1000_967B.cpp`](./1000/1000_967B.cpp) | C++20 | [Codeforces 967B](https://codeforces.com/problemset/problem/967/B) |
+| `1000` | **979A** | Pizza, Pizza, Pizza!!! | [`1000_979A.cpp`](./1000/1000_979A.cpp) | C++20 | [Codeforces 979A](https://codeforces.com/problemset/problem/979/A) |
 | `1000` | **1346A** | Color Revolution | [`1000_1346A.cpp`](./1000/1000_1346A.cpp) | C++20 | [Codeforces 1346A](https://codeforces.com/problemset/problem/1346/A) |
 
 </details>
