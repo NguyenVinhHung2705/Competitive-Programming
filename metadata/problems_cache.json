@@ -272,7 +272,42 @@
       ],
       "url": "https://codeforces.com/problemset/problem/979/A",
       "is_codeforces": true
+    },
+    "2261C": {
+      "contestId": 2261,
+      "index": "C",
+      "name": "I Know About a Million Things",
+      "rating": 1000,
+      "tags": [
+        "games",
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/2261/C",
+      "is_codeforces": true
+    },
+    "1A": {
+      "contestId": 1,
+      "index": "A",
+      "name": "Theatre Square",
+      "rating": 1000,
+      "tags": [
+        "math"
+      ],
+      "url": "https://codeforces.com/problemset/problem/1/A",
+      "is_codeforces": true
+    },
+    "118A": {
+      "contestId": 118,
+      "index": "A",
+      "name": "String Task",
+      "rating": 1000,
+      "tags": [
+        "implementation",
+        "strings"
+      ],
+      "url": "https://codeforces.com/problemset/problem/118/A",
+      "is_codeforces": true
     }
   },
-  "last_updated": "2026-11-09T02:33:23.018067+00:00"
+  "last_updated": "2026-11-11T12:06:11.970914+00:00"
 }
